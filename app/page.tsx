@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { RandomFox } from '../components/random-fox';
 
 export default function Home() {
   return (
@@ -11,14 +12,13 @@ export default function Home() {
           <link rel="stylesheet" href="" />
         </head>
 
-      <main>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-      </main>
+        <main>
+          <h1 className="text-3xl font-bold underline">Hello world!</h1>
+          <RandomFox/>
+        </main>
 
-      <footer>        
-      </footer>
+        <footer>
+        </footer>
       </div>
 
     </main>
