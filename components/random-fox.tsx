@@ -1,12 +1,12 @@
-import type { FunctionComponent, FC } from "react"
+//import type { FunctionComponent, FC } from "react"
+type Props = {
+    image : string 
+    alt : string
+};
 
-//generate a random function between 1 to 123
-const random = () => Math.floor(Math.random() * 123) + 1;
+export const RandomFox = ({image, alt}: Props) : JSX.Element => { //best way to used it
 
-export const RandomFox = (): JSX.Element => { //best way to used it
-    const image = `https://randomfox.ca/images/${random()}.jpg`; //alt 96
-
-    return <img width={320} height="auto" className="rounded" src={image}/>
+    return <img width={320} height="auto" className="rounded" src={image} alt={alt}/>
 }
 
 // export const RandomFox = () => {
