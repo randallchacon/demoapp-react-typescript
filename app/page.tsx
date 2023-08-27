@@ -15,7 +15,7 @@ type ImageItems = {id: string, url:string};
 const Home: NextPage = () => {
   const [images, setImages] = useState<Array<ImageItems>>([]);
 
-  const addNewFox : MouseEventHandler<HTMLButtonElement>= (event) => {
+  const addNewFox : MouseEventHandler<HTMLButtonElement> = (event) => {
     //event.preventDefault();
     //const target = event.target;
 
@@ -42,7 +42,7 @@ const Home: NextPage = () => {
 
         <main>
           <h1 className="text-3xl font-bold underline">Demo Project | React - Typescript</h1>
-          <button onClick={() => addNewFox()}>Add new fox</button>
+          <button onClick={() => addNewFox}>Add new fox</button>
           {images.map(({id, url}) =>(
             <div key={id} className="p-4">
               <RandomFox image={url} alt={`Happy fox`}/>
