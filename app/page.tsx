@@ -1,23 +1,42 @@
-import Image from 'next/image'
+'use client';
+import { useState } from 'react';
+import type { NextPage } from 'next';
+import Head from 'next/head';
 import { RandomFox } from '../components/random-fox';
 
 //generate a random function between 1 to 123
 const random = () => Math.floor(Math.random() * 123) + 1;
 
-export default function Home() {
+const generateId = () => Math.random().toString(36).substr(2,9);
+
+type ImageItems = {id: string, url:string};
+
+const Home: NextPage = () => {
+  const [images, setImages] = useState<Array<ImageItems>>([
+    {id:generateId(), url: `https://randomfox.ca/images/${random()}.jpg`},
+    {id:generateId(), url: `https://randomfox.ca/images/${random()}.jpg`},
+    {id:generateId(), url: `https://randomfox.ca/images/${random()}.jpg`},
+    {id:generateId(), url: `https://randomfox.ca/images/${random()}.jpg`},
+    {id:generateId(), url: `https://randomfox.ca/images/${random()}.jpg`},
+  ]);
+  
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
 
       <div>
-        <head>
+        <Head>
           <title></title>
-          <meta />
-          <link rel="stylesheet" href="" />
-        </head>
+          <meta name="description" content="Created by Randall Ch"/>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
         <main>
-          <h1 className="text-3xl font-bold underline">Hello world!</h1>
-          <RandomFox image={`https://randomfox.ca/images/${random()}.jpg`} alt={`Happy fox`}/>
+          <h1 className="text-3xl font-bold underline">Demo Project | React - Typescript</h1>
+          {images.map(({id, url}) =>(
+            <div key={id} className="p-4">
+              <RandomFox image={url} alt={`Happy fox`}/>
+            </div>
+          ))}
         </main>
 
         <footer>
@@ -27,3 +46,4 @@ export default function Home() {
     </main>
   )
 }
+export default Home;

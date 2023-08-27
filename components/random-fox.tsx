@@ -6,8 +6,8 @@ type Props = {
 
 export const RandomFox = ({image, alt}: Props) : JSX.Element => { //best way to used it
 
-    return <img width={320} height="auto" className="rounded" src={image} alt={alt}/>
-}
+    return <img width={320} height="auto" className="rounded" src={image} alt={alt}/>;
+};
 
 // export const RandomFox = () => {
 //     return <img/>
